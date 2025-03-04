@@ -15,12 +15,14 @@
           <div class="info-card">
             <i class="fas fa-envelope"></i>
             <h3>Email</h3>
-            <a href="mailto:malingabandara@gmail.com">malingabandara@gmail.com</a>
+            <a href="mailto:malingabandara@gmail.com"
+              >malingasadharuwan@gmail.com</a
+            >
           </div>
           <div class="info-card">
             <i class="fas fa-map-marker-alt"></i>
             <h3>Location</h3>
-            <span>Colombo, Sri Lanka</span>
+            <span> Sri Lanka</span>
           </div>
         </div>
       </div>
@@ -32,25 +34,25 @@
           <h2>Social Links</h2>
         </div>
         <div class="social-grid">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-card">
+          <a
+            href="https://github.com/zukoo52"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card"
+          >
             <i class="fab fa-github"></i>
             <h3>GitHub</h3>
             <span>Follow my code</span>
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="social-card">
+          <a
+            href="https://www.linkedin.com/in/malinga-bandara-670095145/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card"
+          >
             <i class="fab fa-linkedin"></i>
             <h3>LinkedIn</h3>
             <span>Professional network</span>
-          </a>
-          <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-card">
-            <i class="fab fa-twitter"></i>
-            <h3>Twitter</h3>
-            <span>Latest updates</span>
-          </a>
-          <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-card">
-            <i class="fab fa-instagram"></i>
-            <h3>Instagram</h3>
-            <span>Life moments</span>
           </a>
         </div>
       </div>
@@ -60,8 +62,8 @@
 
 <script>
 export default {
-  name: 'Contact'
-}
+  name: "Contact",
+};
 </script>
 
 <style scoped>

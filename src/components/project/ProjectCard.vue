@@ -1,5 +1,9 @@
 <template>
-  <div class="project-card" @click="showProjectDetails" :data-type="project.type">
+  <div
+    class="project-card"
+    @click="showProjectDetails"
+    :data-type="project.type"
+  >
     <img :src="project.image" alt="Project Image" class="project-image" />
     <div class="card-content">
       <h3>{{ project.title }}</h3>
@@ -40,10 +44,13 @@ export default {
   border: 1px solid #333;
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .project-card::before {
-  content: '';
+  content: "";
   position: absolute;
   right: -35px;
   top: 20px;
@@ -67,7 +74,7 @@ export default {
 
 .project-image {
   width: 100%;
-  height: 200px;
+  height: clamp(150px, 30vw, 200px);
   object-fit: cover;
   transition: all 0.3s ease;
 }
@@ -77,19 +84,19 @@ export default {
 }
 
 .card-content {
-  padding: 25px;
+  padding: clamp(15px, 3vw, 25px);
 }
 
 .card-content h3 {
   margin: 0 0 10px 0;
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
   color: #fff;
   font-weight: 600;
 }
 
 .card-content p {
   color: #aaa;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   margin-bottom: 15px;
   line-height: 1.6;
 }
@@ -106,7 +113,7 @@ export default {
   color: #e1e1e1;
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
   transition: all 0.2s ease;
 }
 
@@ -120,18 +127,23 @@ export default {
   gap: 10px;
   justify-content: flex-start;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .buttons a {
+  flex: 1;
+  min-width: 120px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 8px 16px;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   text-decoration: none;
   color: white;
   border-radius: 20px;
   transition: all 0.2s ease;
   border: 1px solid transparent;
+  text-align: center;
 }
 
 /* Color coding for different project types */
@@ -177,29 +189,30 @@ export default {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
-  .project-card::before {
-    left: -25px;
-    right: auto;
+@media (max-width: 480px) {
+  .project-card {
+    max-width: 100%;
   }
 
-  .project-card:nth-child(even)::before {
-    left: -25px;
+  .project-card::before {
+    display: none;
   }
 
   .card-content {
-    padding: 20px;
+    padding: 15px;
+  }
+
+  .tech-stack {
+    gap: 6px;
   }
 
   .buttons {
-    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .buttons a {
-    flex: 1;
-    text-align: center;
-    justify-content: center;
-    min-width: 120px;
+    min-width: 100%;
+    padding: 10px;
   }
 }
 </style>

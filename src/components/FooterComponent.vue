@@ -5,9 +5,9 @@
       <div class="footer-top">
         <div class="footer-logo">
           <h3>Malinga Bandara</h3>
-          <p>Software Engineer & UI/UX Enthusiast</p>
+          <!-- <p> | Software Engineer |<br>| AI & Prompt Engineering |<br>| Psychology Enthusiast |</p> -->
         </div>
-        
+
         <div class="footer-links">
           <div class="link-group">
             <h4>Navigation</h4>
@@ -17,16 +17,24 @@
             <router-link to="/tech-stack">Tech Stack</router-link>
             <router-link to="/contacts">Contact</router-link>
           </div>
-          
+
           <div class="link-group">
             <h4>Social</h4>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/zukoo52"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fab fa-github"></i> GitHub
             </a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/in/malinga-bandara-670095145/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-            <a href="mailto:your.email@example.com">
+            <a href="malingasadharuwan@gmail.com">
               <i class="fas fa-envelope"></i> Email
             </a>
           </div>
@@ -41,8 +49,8 @@
         <div class="tech-stack">
           <span>Built with</span>
           <i class="fab fa-vuejs" title="Vue.js"></i>
-          <i class="fab fa-laravel" title="Laravel"></i>
-          <i class="fab fa-sass" title="Sass"></i>
+
+          <i class="fab fa-css" title="CSS"></i>
         </div>
       </div>
     </div>
@@ -54,8 +62,8 @@
 
 <script>
 export default {
-  name: 'FooterComponent'
-}
+  name: "FooterComponent",
+};
 </script>
 
 <style scoped>
@@ -81,9 +89,16 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(45, 212, 191, 0.1) 0%, transparent 50%);
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(124, 58, 237, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(45, 212, 191, 0.1) 0%,
+      transparent 50%
+    );
   opacity: 0.5;
   z-index: 1;
 }

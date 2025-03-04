@@ -5,17 +5,15 @@
       <div class="neural-network-bg"></div>
       <div class="hero-content">
         <div class="hero-image">
-          <img src="@/assets/me.png" alt="Malinga Bandara" />
+          <img src="@/assets/me7.png" alt="Malinga Bandara" />
         </div>
-        <h1 class="glitch-text" data-text="Malinga Bandara">
-          Malingaa Bandara
-        </h1>
+        <h1 class="glitch-text" data-text="Malinga Bandara">Malinga Bandara</h1>
         <div class="typewriter">
           <span class="typed-text"></span>
           <span class="cursor"></span>
         </div>
         <p class="hero-description">
-          A Fresh Graduate 🎓 & Aspiring Software Engineer 💻
+          "Software Engineer | AI & Prompt Engineering | Psychology Enthusiast"
         </p>
         <div class="cta-buttons">
           <button class="primary-btn" @click="scrollToSection('about')">
@@ -23,6 +21,12 @@
           </button>
           <button class="secondary-btn" @click="$router.push('/Contacts')">
             Contact Me
+          </button>
+          <button
+            class="primary-btn"
+            @click="scrollToSection('download-resume')"
+          >
+            Download CV
           </button>
         </div>
       </div>
@@ -35,78 +39,73 @@
           <div class="image-section">
             <img
               class="developer-image"
-              src="@/assets/me.png"
+              src="@/assets/me (2).png"
               alt="Developer"
             />
           </div>
           <div class="about-content">
             <h2>About Me! ✌️</h2>
             <p>
-              🎓 I'm a recent graduate from South Eastern University of Sri
-              Lanka (February 2024) and currently gaining hands-on experience as
-              a trainee software engineer 💻 🖋️ 🚀.
-            </p>
+              🚀 I’m a passionate software engineer with experience in
+              full-stack development, AI, and prompt engineering. I hold a
+              Bachelor's degree in Information and Communication Technology
+              (Software Technology) from South Eastern University of Sri Lanka
+              (February 2024).
+            </p><br>
             <p>
-              My focus is on UI/UX design 🎨 and web application development 👨🏼‍💻
-              using Laravel and Vue. With about a year of experience, I'm just
-              getting started in this exciting journey, eager to learn 📚, grow
-              🌱, and create meaningful digital solutions 🌟.
+              My expertise includes building web applications using Laravel,
+              Vue, and modern AI-driven solutions. I’m also deeply interested in
+              human psychology, cognitive science, and personal
+              development—applying mindset strategies to continuously grow both
+              personally and professionally.
+            </p><br>
+            <p>
+              With hands-on experience in AI, automation, and full-stack
+              development, I’m always exploring innovative ways to create
+              impactful and scalable digital solutions. Let’s build something
+              amazing! 💡💻
             </p>
           </div>
         </div>
       </div>
     </section>
-    <DownloadResume />
+
+    <!-- Experience Overview -->
+    <section class="experience-section">
+      <div class="content-wrapper">
+        <h2>Experience Snapshot 💼</h2>
+        <div class="experience-timeline">
+          <div v-for="exp in experiences" :key="exp.id" class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>{{ exp.role }}</h3>
+                <span class="company">{{ exp.company }}</span>
+                <span class="duration">{{ exp.duration }}</span>
+              </div>
+              <p>{{ exp.description }}</p>
+              <div class="skill-tags">
+                <span v-for="skill in exp.skills" :key="skill">{{
+                  skill
+                }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-footer">
+          <router-link to="/Experience" class="view-more-btn">
+            View Full Experience History <i class="fas fa-arrow-right"></i>
+          </router-link>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Expertise section -->
     <section class="soft-skills-section">
       <div class="content-wrapper">
         <h2 class="section-title">Skills & Expertise</h2>
         <p class="section-subtitle">Click on any category to explore more</p>
 
         <div class="skills-table">
-          <!-- Soft Skills -->
-          <div class="skill-category">
-            <div class="category-header" @click="toggleCategory('softSkills')">
-              <div class="header-content">
-                <i class="fas fa-brain"></i>
-                <h3>Soft Skills</h3>
-              </div>
-              <i
-                :class="[
-                  'fas',
-                  activeCat === 'softSkills'
-                    ? 'fa-chevron-up'
-                    : 'fa-chevron-down',
-                ]"
-              ></i>
-            </div>
-            <div class="category-content" v-show="activeCat === 'softSkills'">
-              <div class="skills-grid">
-                <div
-                  class="skill-item"
-                  v-for="skill in softSkills"
-                  :key="skill.name"
-                >
-                  <div class="skill-info">
-                    <i :class="skill.icon"></i>
-                    <div class="skill-details">
-                      <h4>{{ skill.name }}</h4>
-                      <p>{{ skill.description }}</p>
-                    </div>
-                  </div>
-                  <div class="skill-progress">
-                    <div class="progress-bar">
-                      <div
-                        class="progress"
-                        :style="{ width: skill.level + '%' }"
-                      ></div>
-                    </div>
-                    <span class="percentage">{{ skill.level }}%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- Tech Stack -->
           <div class="skill-category">
             <div class="category-header" @click="toggleCategory('techStack')">
@@ -138,6 +137,41 @@
                         class="progress"
                         :style="{ width: tech.level + '%' }"
                       ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="skill-category">
+            <div class="category-header" @click="toggleCategory('softSkills')">
+              <div class="header-content">
+                <i class="fas fa-brain"></i>
+                <h3>Soft Skills</h3>
+              </div>
+              <i
+                :class="[
+                  'fas',
+                  activeCat === 'softSkills'
+                    ? 'fa-chevron-up'
+                    : 'fa-chevron-down',
+                ]"
+              ></i>
+            </div>
+            <div class="category-content" v-show="activeCat === 'softSkills'">
+              <div class="skills-grid">
+                <div
+                  class="skill-item"
+                  v-for="skill in softSkills"
+                  :key="skill.name"
+                >
+                  <div class="skill-info">
+                    <i :class="skill.icon"></i>
+                    <div class="skill-details">
+                      <h4>{{ skill.name }}</h4>
+                      <p>{{ skill.description }}</p>
                     </div>
                   </div>
                 </div>
@@ -220,6 +254,7 @@
       </div>
     </section>
 
+    <!-- Featured Projects -->
     <section class="projects-section">
       <div class="content-wrapper">
         <h2 class="section-title">Featured Projects</h2>
@@ -269,6 +304,95 @@
             </div>
           </div>
         </div>
+        <div class="section-footer">
+          <router-link to="/Projects" class="view-more-btn">
+            View All Projects <i class="fas fa-arrow-right"></i>
+          </router-link>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Card -->
+    <section class="education-overview">
+      <div class="content-wrapper">
+        <h2>Academic Background</h2>
+        <div class="education-grid">
+          <div class="edu-card">
+            <div class="card-content">
+              <div class="card-header">
+                <i class="fas fa-graduation-cap"></i>
+                <span class="edu-tag"
+                  >Bachelor of Information and Communication Technology (BICT)
+                  (Hons)</span
+                >
+              </div>
+              <h4>Specialization - Software Technology</h4>
+              <p class="university">South Eastern University of Sri Lanka</p>
+              <div class="edu-details">
+                <span class="duration">
+                  <i class="fas fa-calendar-alt"></i>
+                  2024
+                </span>
+                <span class="grade"> </span>
+              </div>
+
+              <div class="skills-container">
+                <span>Software Development</span>
+                <span>Full-Stack Development</span>
+                <span>Cloud Computing</span>
+                <span>Network Administration</span>
+                <span>Project Management</span>
+                <span>Cybersecurity</span>
+                <span>Artificial Intelligence (AI)</span>
+                <span>Mobile Application Development</span>
+                <span>Software Testing</span>
+                <span>System Integration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications Card -->
+          <div class="edu-card">
+            <div class="card-content">
+              <div class="card-header">
+                <i class="fas fa-certificate"></i>
+                <span class="edu-tag">Professional Certifications</span>
+              </div>
+              <div class="cert-list">
+                <div class="cert-item">
+                  <div class="cert-info">
+                    <h4>Fundamentals of NuxtJS</h4>
+                    <p class="cert-provider">Board Infinity</p>
+                  </div>
+                  <span class="cert-date">January 2025</span>
+                </div>
+
+                <div class="cert-item">
+                  <div class="cert-info">
+                    <h4>JavaScript for Web Development</h4>
+                    <p class="cert-provider">Board Infinity</p>
+                  </div>
+                  <span class="cert-date">December 2024</span>
+                </div>
+
+                <div class="cert-item">
+                  <div class="cert-info">
+                    <h4>Open Source Software Development Methods</h4>
+                    <p class="cert-provider">The Linux Foundation</p>
+                  </div>
+                  <span class="cert-date">February 2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-footer">
+          <router-link to="/Education" class="explore-btn">
+            <span>View Full Academic Profile</span>
+            <i class="fas fa-arrow-right"></i>
+          </router-link>
+        </div>
       </div>
     </section>
 
@@ -289,42 +413,38 @@
               />
             </div>
             <div class="research-info">
-              <h4>
+              <h3>
                 STUDY OF GESTALT AND COGNITIVE PSYCHOLOGICAL THEORY INFLUENCE ON
                 UI/UX
-              </h4>
+              </h3>
               <p>
-                Conducted comprehensive research on how psychological principles
-                influence modern interface design, focusing on user perception
-                and interaction patterns.
+                A comprehensive research study investigating how Gestalt
+                principles and cognitive psychology influence modern UI/UX
+                design. By integrating psychological theories with software
+                engineering, this research explores how user interfaces can be
+                optimized for efficiency, accessibility, and personalization.
+                The study emphasizes the combination of
+                behavioral-personalization and self-personalization to enhance
+                usability for users of all skill levels.
+              </p>
+              <br />
+              <h3>Problem Statement</h3>
+              <p>
+                As Human-Computer Interaction (HCI) evolves, many user
+                interfaces still fail to provide intuitive and efficient
+                experiences, particularly for novice users. This research
+                addresses this gap by integrating cognitive psychology and
+                software engineering to design adaptive UI systems that align
+                with human capabilities and limitations.
               </p>
               <div class="research-tags">
                 <span v-for="tag in researchTags" :key="tag">{{ tag }}</span>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Overview -->
-    <section class="experience-section">
-      <div class="content-wrapper">
-        <h2>Experience Snapshot 💼</h2>
-        <div class="experience-timeline">
-          <div v-for="exp in experiences" :key="exp.id" class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <h3>{{ exp.role }}</h3>
-                <span class="company">{{ exp.company }}</span>
-                <span class="duration">{{ exp.duration }}</span>
-              </div>
-              <p>{{ exp.description }}</p>
-              <div class="skill-tags">
-                <span v-for="skill in exp.skills" :key="skill">{{
-                  skill
-                }}</span>
-              </div>
+            <div class="ResearchLink">
+              <router-link to="/Experience" class="view-more-btn">
+                View Full Research Details <i class="fas fa-arrow-right"></i>
+              </router-link>
             </div>
           </div>
         </div>
@@ -338,6 +458,7 @@
         <img :src="selectedImage" alt="Research Publication" />
       </div>
     </div>
+    <DownloadResume id="download-resume" />
   </div>
 </template>
 
@@ -352,93 +473,143 @@ export default {
     return {
       selectedImage: null,
       researchImages: [
-        "/research-publication-1.jpg",
-        "/research-publication-2.jpg",
-        "/research-publication-3.jpg",
+        "/public/Experience/Research/research01.jpg",
+        "/public/Experience/Research/research02.jpg",
+        "/public/Experience/Research/research03.jpg",
       ],
       researchTags: [
-        "UI/UX Research",
-        "Gestalt Psychology",
-        "Cognitive Theory",
-        "HCI",
+        "UI/UX Research & Design",
+        "Psychology-Driven UI",
+        "Gestalt Psychology & Cognitive Theory",
+        "Human-Computer Interaction (HCI)",
+        "Software Development for Usability Optimization",
+        "Behavioral-Personalization & Self-Personalization in UX",
+        "Cognitive Load Analysis for Software System",
+        "Prototyping & Implementing UI Systems",
       ],
       experiences: [
         {
           id: 1,
-          role: "Full Stack Developer",
-          company: "Example Tech",
-          duration: "Jan 2023 - Present",
+          role: "Trainee Software Engineer (Full-Stack)",
+          company: "Appsdept (Pvt) Ltd",
+          duration: "Mar 2024 – Sep 2024",
           description:
-            "Working on developing and maintaining web applications using modern technologies.",
-          skills: ["Vue.js", "Laravel", "UI/UX"],
+            " Worked on full-stack development projects, contributing to both  front-end and back-end development. Gained experience in Laravel,Vue.js, Git, Docker, and Jira, while collaborating in an Agile development environment.",
+          skills: [
+            "Laravel ",
+            "Vue.js",
+            "Git",
+            "Jira",
+            "MySQL",
+            "Fedora-Linux-OS",
+          ],
         },
         {
           id: 2,
-          role: "Frontend Developer Intern",
-          company: "Tech Startup",
-          duration: "Jun 2022 - Dec 2022",
+          role: "Software Engineer Intern",
+          company: "Elzian Agro (PVT) Ltd",
+          duration: "JAug 2022 - Mar 2023",
           description:
-            "Worked on the company's main product interface and implemented new features.",
-          skills: ["Vue.js", "TailwindCSS", "JavaScript"],
+            "Contributed to the development of React.js & Node.js-based web applications, improving user experience and backend efficiency",
+          skills: [
+            "React.js",
+            "Node.js",
+            "SQL",
+            "Git",
+            "Figma",
+            "Trello",
+            "Agile",
+          ],
         },
       ],
       activeCat: "softSkills",
       softSkills: [
         {
-          name: "AI Integration",
+          name: "AI & Automation",
           icon: "fas fa-robot",
-          description: "Experience with AI tools and implementations",
+          description:
+            "Optimizing AI responses and automating tasks for greater efficiency",
           level: 90,
         },
         {
-          name: "Problem Solving",
+          name: "Problem Solving & Critical Thinking",
           icon: "fas fa-brain",
-          description: "Analytical and creative problem-solving abilities",
+          description:
+            "Strong analytical skills for solving complex problems and making data-driven decisions",
           level: 95,
         },
         {
-          name: "Team Collaboration",
+          name: "Psychology & Emotional Intelligence",
+          icon: "fa-solid fa-braille",
+          description:
+            "Applying psychological principles and emotional intelligence for personal growth and decision-making",
+          level: 85,
+        },
+        {
+          name: "Communication, Collaboration & Leadership",
           icon: "fas fa-users",
-          description: "Effective team player with great communication",
+          description:
+            "Effective communicator, team player, and proactive leader driving collaboration and results",
           level: 90,
         },
         {
-          name: "Critical Thinking",
-          icon: "fas fa-lightbulb",
-          description: "Analytical approach to challenges",
-          level: 88,
+          name: "Adaptability & Time Management",
+          icon: "fas fa-sync-alt",
+          description:
+            "Quickly adjusting to new challenges while efficiently managing time and priorities",
+          level: 90,
         },
       ],
       techStack: [
-        { name: "Vue.js", icon: "fab fa-vuejs", level: 90 },
+        { name: "Vue.js", icon: "fab fa-vuejs" },
         { name: "Laravel", icon: "fab fa-laravel", level: 85 },
         { name: "JavaScript", icon: "fab fa-js", level: 88 },
         { name: "PHP", icon: "fab fa-php", level: 85 },
+        { name: "AI", icon: "fas fa-brain", level: 85 },
+        { name: "Prompt Engineering", icon: "fas fa-keyboard", level: 90 },
+        { name: "ChatGPT API", icon: "fas fa-robot", level: 88 },
         { name: "HTML5", icon: "fab fa-html5", level: 95 },
         { name: "CSS3", icon: "fab fa-css3-alt", level: 90 },
         { name: "Git", icon: "fab fa-git-alt", level: 85 },
         { name: "MySQL", icon: "fas fa-database", level: 80 },
+        { name: "Docker", icon: "fab fa-docker", level: 75 },
       ],
       hobbies: [
         {
-          name: "Weightlifting",
+          name: "Software Development & Open Source",
+          icon: "fas fa-laptop-code",
+          description:
+            "Building applications with languages like PHP, JavaScript, Python, and contributing to open-source projects",
+        },
+        {
+          name: "Tech Exploration & AI",
+          icon: "fas fa-microchip",
+          description:
+            "Exploring new technologies, trends in software development, and advancements in AI",
+        },
+        {
+          name: "Automation & Tool Integration",
+          icon: "fas fa-cogs",
+          description:
+            "Integrating tech tools to automate tasks, improve efficiency, and optimize automation processes",
+        },
+        {
+          name: "Physical Fitness & Resilience",
           icon: "fas fa-dumbbell",
-          description: "Strength training enthusiast",
+          description:
+            "Improving strength, fitness, and mental resilience through weightlifting and boxing",
         },
         {
-          name: "Boxing",
-          icon: "fas fa-boxing-glove",
-          description: "Combat sports training",
+          name: "Psychology & Personal Growth",
+          icon: "fa-solid fa-hexagon-nodes",
+          description:
+            "Studying human behavior, cognitive biases, decision-making, and applying principles for personal growth",
         },
         {
-          name: "Reading",
-          icon: "fas fa-book-reader",
-          description: "Books & Technical Articles",
-        },
-        {
-          name: "Writing",
+          name: "Content Creation & Learning",
           icon: "fas fa-pen-fancy",
-          description: "Technical Articles & Blogs",
+          description:
+            "Creating content on psychology, self-optimization, AI-driven videos, and continuously learning for professional growth",
         },
       ],
       languages: [
@@ -451,46 +622,46 @@ export default {
         {
           name: "English",
           flag: "🇬🇧",
-          level: "Professional",
-          percentage: 85,
-        },
-        {
-          name: "Tamil",
-          flag: "🇮🇳",
-          level: "Basic",
-          percentage: 40,
+          level: "Professional Working Proficiency",
+          percentage: 90,
         },
       ],
       projects: [
         {
           id: 1,
-          title: "E-Commerce Platform",
+          title: "Nuxt.js & WordPress Integration",
           description:
-            "A full-stack e-commerce platform with real-time inventory management, secure payment processing, and an intuitive admin dashboard.",
-          image: "@/assets/projects/ecommerce.jpg",
-          liveUrl: "https://ecommerce-demo.com",
-          githubUrl: "https://github.com/yourusername/ecommerce",
-          technologies: ["Vue.js", "Laravel", "MySQL", "Stripe"],
+            "This project is a front-end web application that allows students to find qualified tutors and book sessions while enabling teachers to bid on tutoring requests. It ensures an interactive and user-friendly experience through a well-designed UI.",
+          image: "/public/Projects/me.png",
+          // liveUrl: "https://ecommerce-demo.com",
+          githubUrl:
+            "https://github.com/zukoo52/-Nuxt.js-WordPress-Integration.git",
+          technologies: ["Vue.js", "WordPress", "REST API"],
         },
         {
           id: 2,
-          title: "Task Management System",
+          title: "Online Tutor Booking System - Front End (E-Tutor)",
           description:
             "A collaborative task management system with real-time updates, file sharing, and team communication features.",
-          image: "@/assets/projects/taskmanager.jpg",
-          liveUrl: "https://task-manager-demo.com",
+          image: "/public/Projects/OnlineTutorBooking/onlineTutorFrontEnd1.png",
+          // liveUrl: "https://task-manager-demo.com",
           githubUrl: "https://github.com/yourusername/task-manager",
-          technologies: ["Vue.js", "Node.js", "MongoDB", "Socket.io"],
+          technologies: ["Vue.js", "Vue Router", "Vuex", "SCSS"],
         },
         {
           id: 3,
-          title: "AI Content Generator",
+          title: "Client Management System - Backend",
           description:
-            "An AI-powered content generation tool that creates unique articles and blog posts using natural language processing.",
-          image: "@/assets/projects/ai-content.jpg",
+            "This is the backend API for the Client Management System, built with Laravel using the Repository Pattern for better code organization. It provides a secure and structured way to manage client data and handle authentication.",
+          image: "/public/Projects/ClientCrud/image (4).png",
           liveUrl: "https://ai-content-demo.com",
           githubUrl: "https://github.com/yourusername/ai-content",
-          technologies: ["Vue.js", "Python", "TensorFlow", "GPT-3"],
+          technologies: [
+            "Laravel",
+            "MySQL",
+            "Repository Pattern",
+            "API Resources",
+          ],
         },
       ],
     };
@@ -514,9 +685,9 @@ export default {
     // Initialize typewriter effect
     const texts = [
       "Software Engineer",
-      "UI/UX Designer",
       "Full Stack Developer",
-      "Psychology Enthusiast",
+      "AI & Prompt Engineering",
+      "Mindset & Personal Growth Enthusiast",
     ];
     let textIndex = 0;
     let charIndex = 0;
@@ -557,11 +728,14 @@ export default {
   position: relative;
   background: #0a0a0a;
   color: #fff;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
+  padding: 2rem 1rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -611,10 +785,11 @@ export default {
   text-align: center;
   z-index: 2;
   padding: 20px;
+  width: 100%;
 }
 
 .glitch-text {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   position: relative;
   text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
@@ -643,9 +818,10 @@ export default {
 }
 
 .hero-description {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   color: #aaa;
   margin: 20px 0;
+  padding: 0 1rem;
 }
 
 .cta-buttons {
@@ -653,6 +829,9 @@ export default {
   gap: 20px;
   justify-content: center;
   margin-top: 30px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .primary-btn,
@@ -704,19 +883,20 @@ section h2 {
   grid-template-columns: 300px 1fr;
   gap: 40px;
   align-items: start;
+  flex-direction: column;
 }
 
 .developer-image {
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-.about-content p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 15px 0;
-  color: #aaa;
+.about-content {
+  width: 100%;
+  text-align: justify;
 }
 
 /* Research Section */
@@ -743,7 +923,7 @@ section h2 {
   width: 100%;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .research-images img:hover {
@@ -862,12 +1042,13 @@ section h2 {
 }
 
 .skills-table {
-  max-width: 1000px;
+  max-width: 100%;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
 }
 
 .skill-category {
@@ -944,7 +1125,7 @@ section h2 {
 
 .skill-details h4 {
   color: #fff;
-  margin: 0 0 0.3rem 0;
+  margin-bottom: 0.3rem;
 }
 
 .skill-details p {
@@ -985,7 +1166,7 @@ section h2 {
 /* Tech Grid */
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
@@ -1015,13 +1196,13 @@ section h2 {
 
 .tech-details h4 {
   color: #fff;
-  margin: 0 0 0.5rem 0;
+  margin-bottom: 0.5rem;
 }
 
 /* Hobbies Grid */
 .hobbies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
@@ -1047,7 +1228,7 @@ section h2 {
 
 .hobby-details h4 {
   color: #fff;
-  margin: 0 0 0.3rem 0;
+  margin-bottom: 0.3rem;
 }
 
 .hobby-details p {
@@ -1064,8 +1245,8 @@ section h2 {
 
 .language-item {
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 10px;
   padding: 1rem;
+  border-radius: 10px;
   transition: all 0.3s ease;
 }
 
@@ -1090,7 +1271,7 @@ section h2 {
 
 .language-details h4 {
   color: #fff;
-  margin: 0 0 0.3rem 0;
+  margin-bottom: 0.3rem;
 }
 
 .language-details p {
@@ -1105,12 +1286,11 @@ section h2 {
     rgba(18, 18, 18, 0.98),
     rgba(18, 18, 18, 0.95)
   );
-  padding: 6rem 0;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 3rem;
 }
@@ -1188,6 +1368,15 @@ section h2 {
   transform: translateY(-2px);
 }
 
+.project-link i {
+  font-size: 0.9em;
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover i {
+  transform: translateX(3px);
+}
+
 .project-content {
   padding: 1.5rem;
 }
@@ -1219,6 +1408,251 @@ section h2 {
   font-size: 0.85rem;
   border: 1px solid rgba(124, 58, 237, 0.2);
 }
+
+/* Brief Education and Certifications */
+.education-overview {
+  padding: 5rem 0;
+  background: linear-gradient(to bottom, rgba(124, 58, 237, 0.05), transparent);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.edu-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.edu-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.edu-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.edu-card:hover::before {
+  opacity: 1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.edu-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(124, 58, 237, 0.1);
+  color: #7c3aed;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.edu-card h3 {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.university {
+  color: #7c3aed;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.edu-details {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.edu-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.edu-details i {
+  color: #7c3aed;
+}
+
+.edu-description {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skills-container span {
+  padding: 0.4rem 1rem;
+  background: rgba(124, 58, 237, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.skills-container span:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
+}
+
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(124, 58, 237, 0.03);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.cert-item:hover {
+  background: rgba(124, 58, 237, 0.05);
+  transform: translateX(5px);
+}
+
+.cert-info h4 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.cert-provider {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.cert-date {
+  color: #7c3aed;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  color: white;
+  border-radius: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+  gap: 1.25rem;
+}
+
+.explore-btn i {
+  transition: transform 0.3s ease;
+}
+
+.explore-btn:hover i {
+  transform: translateX(3px);
+}
+
+.section-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .edu-card {
+    padding: 1.5rem;
+  }
+
+  .edu-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .cert-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .cert-date {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 968px) {
+  .skills-table {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-category {
+    grid-column: auto;
+  }
+
+  .two-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Image Modal */
 .image-modal {
   position: fixed;
@@ -1354,28 +1788,91 @@ section h2 {
   }
 }
 
-@media (max-width: 968px) {
-  .skills-table {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-category {
-    grid-column: auto;
-  }
-
-  .two-columns {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
 @media (max-width: 480px) {
-  .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero {
+    padding: 1rem;
   }
 
-  .hobbies-grid {
-    grid-template-columns: 1fr;
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .hero-image img {
+    max-width: 150px;
+  }
+
+  .glitch-text {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    padding: 10px 20px;
+  }
+
+  .about-section {
+    padding: 2rem 1rem;
+  }
+
+  .profile-section {
+    gap: 1rem;
+  }
+
+  .image-section {
+    max-width: 200px;
+  }
+
+  .about-content {
+    padding: 1rem;
+  }
+
+  .research-section {
+    padding: 2rem 1rem;
+  }
+
+  .research-card {
+    padding: 1rem;
+  }
+
+  .research-content {
+    gap: 1rem;
+  }
+
+  .experience-section {
+    padding: 2rem 1rem;
+  }
+
+  .timeline-item {
+    padding: 1rem;
+  }
+
+  .skills-table {
+    padding: 1rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-image {
+    height: 150px;
+  }
+
+  .project-content {
+    padding: 1rem;
+  }
+
+  .edu-card {
+    padding: 1rem;
   }
 }
 </style>

@@ -3,6 +3,19 @@
     <div class="page-title">
       <h1>Projects</h1>
     </div>
+
+    <div class="linkedin-button-container">
+      <a
+        href="https://github.com/zukoo52"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="linkedin-cert-button"
+      >
+        <i class="fab fa-github"></i>
+        View My Profile on Github
+      </a>
+    </div>
+
     <div class="projects-grid">
       <ProjectCard
         v-for="project in projects"
@@ -73,7 +86,7 @@ export default {
             "https://www.figma.com/design/XC8I77zh8Ptlm4joeRyGWy/Task-client-Management?node-id=0-1&t=XmD5PHzEZb6RkZvJ-1",
         },
         {
-          id: 1,
+          id: 2,
           title: " Front-End Client Management System ",
           description:
             "This system allows you to add, update, and view client details in a well-organized interface.",
@@ -117,7 +130,7 @@ export default {
         },
 
         {
-          id: 2,
+          id: 3,
           title: "🗄️ Client Management System - Backend",
           description:
             "The backend API for the Client Management System, built with Laravel using the Repository Pattern for better code organization.",
@@ -148,7 +161,7 @@ export default {
           figmaLink: "https://www.figma.com/file/yourdesign",
         },
         {
-          id: 3,
+          id: 4,
           title: "Online Tutor Booking System - Front End (E-Tutor)",
           description:
             "A Vue.js-powered online platform that connects students with tutors, providing seamless scheduling, bidding, and interactive learning experiences.",
@@ -174,7 +187,7 @@ export default {
           figmaLink: "https://www.figma.com/file/yourdesign",
         },
         {
-          id: 4,
+          id: 5,
           title: "Online Tutor Booking System - E-Tutor (Back-End)",
           description:
             "The back-end of the E-Tutor Online Tutor Booking System, developed using Laravel, enabling students to find tutors, request lessons, and schedule sessions while tutors can bid on requests and manage bookings.",
@@ -209,7 +222,7 @@ export default {
           figmaLink: "https://www.figma.com/file/yourdesign",
         },
         {
-          id: 5,
+          id: 6,
           title: "360 Car Care Center - ERP System",
           description:
             "A full-stack ERP system designed for automobile service centers to manage customers, appointments, services, inventory, and billing. Built with Laravel for the backend, Blade templating, Vue.js for frontend, and Sanctum for authentication, providing a seamless and scalable solution for vehicle maintenance businesses.",
@@ -256,7 +269,7 @@ export default {
           // figmaLink: "https://www.figma.com/file/yourdesign",
         },
         {
-          id: 6,
+          id: 7,
           title: "Shopping Cart System - Frontend",
           description:
             "A sleek and responsive shopping cart system built with Vue.js, Vuetify, and CSS. This practice-based group project is designed to enhance frontend development skills while delivering a seamless e-commerce experience.",
@@ -291,7 +304,7 @@ export default {
           // figmaLink: "https://www.figma.com/file/yourdesign",
         },
         {
-          id: 7,
+          id: 8,
           title: "Shopping Cart System - Backend",
           description:
             "Backend for a modern e-commerce platform built using Laravel, providing authentication, product management, cart functionality, and order processing.",
@@ -325,7 +338,7 @@ export default {
           // figmaLink: "https://www.figma.com/file/yourdesign",
         },
         {
-          id: 8,
+          id: 9,
           title: "Gym Management System 🏋️‍♂️",
           description:
             "A full-stack Gym Management System built using C# and Visual Studio, designed to help gym owners manage customer registrations, payments, notifications, health reports, and workout schedules.",
@@ -362,13 +375,13 @@ export default {
             },
           ],
           type: "fullstack",
-          githubLink:
-            "https://github.com/yourusername/Gym-Management-System.git",
+          githubLink: "https://github.com/zukoo52/gym-attendence-system",
           // detailsLink: "https://yourwebsite.com/project",
-          // figmaLink: "https://www.figma.com/file/yourdesign",
+          figmaLink:
+            "https://www.figma.com/design/Kh5q02LsbQDT38KSvYgNsg/gym-attendence-system(15%2Fict%2F070)?node-id=0-1&p=f&t=b1D3PDCl24yl5zl1-0",
         },
         {
-          id: 9,
+          id: 10,
           title: "Cylone Antiques - E-Commerce Website 🏺✨",
           description:
             "An exclusive E-Commerce platform for antique lovers to browse, purchase, and track rare antiques, built using PHP.",
@@ -427,92 +440,73 @@ export default {
 
 <style scoped>
 .projects-page {
-  padding: 120px 20px 80px;
+  padding: 2rem 1rem;
   min-height: 100vh;
-  background-color: #0a0a0a;
 }
 
 .page-title {
+padding-top: 100px;
   text-align: center;
-  margin-bottom: 60px;
-  padding: 0 20px;
+  margin-bottom: 2rem;
 }
 
 .page-title h1 {
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   color: #fff;
-  margin-bottom: 20px;
-  font-weight: 600;
-  position: relative;
-  display: inline-block;
 }
 
-.page-title h1::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #2563eb, #7c3aed);
-  border-radius: 2px;
+.linkedin-button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.linkedin-cert-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #114579;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.linkedin-cert-button:hover {
+  background: #444;
+  transform: translateY(-2px);
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  padding: 1rem;
 }
 
-.projects-grid::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background: #333;
-  transform: translateX(-50%);
-  z-index: 0;
-}
-
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .projects-page {
-    padding: 20px 10px;
-  }
-
-  .page-title h1 {
-    font-size: 2rem;
+    padding: 3rem 2rem;
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
   }
+}
 
-  .projects-grid::before {
-    left: 20px;
-    transform: none;
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .projects-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 </style>
-
-<!-- import ProjectCard from "@/components/project/ProjectCard.vue";
-import ProjectList from "@/components/project/ProjectList.vue";
-import ProjectModal from "@/components/project/ProjectModal.vue"
-
-
-export default {
-  components: {
-
-    ProjectCard,
-    ProjectList,
-    ProjectModal,
-  },
-}; -->

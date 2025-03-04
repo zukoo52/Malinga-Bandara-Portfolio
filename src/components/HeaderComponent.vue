@@ -7,8 +7,8 @@
 
       <!-- Desktop Menu -->
       <div class="nav-links" :class="{ 'show': isMobileMenuOpen }">
-        <router-link 
-          v-for="item in menuItems" 
+        <router-link
+          v-for="item in menuItems"
           :key="item.path"
           :to="item.path"
           class="nav-link"
@@ -20,13 +20,13 @@
 
       <!-- Social Links -->
       <div class="social-links" :class="{ 'show': isMobileMenuOpen }">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/zukoo52" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/malinga-bandara-670095145/" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-linkedin"></i>
         </a>
-        <a href="mailto:your.email@example.com">
+        <a href="malingasadharuwan@gmail.com">
           <i class="fas fa-envelope"></i>
         </a>
       </div>
